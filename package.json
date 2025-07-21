@@ -1,0 +1,19 @@
+{
+  "name": "chrono",
+  "version": "1.0.0",
+  "description": "Slack timezone helper",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "jest", 
+    "start": "node src/app.js"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4",  
+    "sinon": "^21.0.0"  
+  },
+  "dependencies": {
+    "@slack/bolt": "^4.4.0",
+    "@slack/web-api": "^7.9.3",
+    "moment-timezone": "^0.6.0"
+  }
+}

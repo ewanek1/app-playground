@@ -1,0 +1,138 @@
+{
+    "display_information": {
+        "name": "Chrono",
+        "description": "Slack timezone helper",
+        "background_color": "#0040ff"
+    },
+    "features": {
+        "bot_user": {
+            "display_name": "Eva's Demo App",
+            "always_online": false
+        },
+        "slash_commands": [
+            {
+                "command": "/convert",
+                "description": "Convert between time zones! ",
+                "should_escape": false
+            },
+            {
+                "command": "/timefor",
+                "description": "Convert to another user's time zone!",
+                "should_escape": true
+            },
+            {
+                "command": "/teamclock",
+                "description": "See everyone in the channel's time & availability! ",
+                "should_escape": false
+            }
+        ]
+    },
+    "oauth_config": {
+        "scopes": {
+            "user": [
+                "channels:read",
+                "chat:write",
+                "groups:read",
+                "im:read",
+                "mpim:read",
+                "users:read",
+                "usergroups:read"
+            ],
+            "bot": [
+                "app_mentions:read",
+                "channels:history",
+                "channels:read",
+                "chat:write",
+                "chat:write.public",
+                "commands",
+                "groups:read",
+                "im:read",
+                "mpim:read",
+                "users:read",
+                "usergroups:read"
+            ]
+        }
+    },
+    "settings": {
+        "event_subscriptions": {
+            "bot_events": [
+                "app_mention",
+                "function_executed"
+            ]
+        },
+        "interactivity": {
+            "is_enabled": true
+        },
+        "org_deploy_enabled": true,
+        "socket_mode_enabled": true,
+        "token_rotation_enabled": false,
+        "hermes_app_type": "remote",
+        "function_runtime": "remote"
+    },
+    "functions": {
+        "Time_zone_converted_WF": {
+            "title": "Conversion_WF",
+            "description": "",
+            "input_parameters": {
+                "timezone_input": {
+                    "type": "string",
+                    "title": "Timezone Input",
+                    "description": "",
+                    "name": "timezone_input"
+                },
+                "current_time": {
+                    "type": "string",
+                    "title": "Current Time ",
+                    "description": "",
+                    "name": "current_time"
+                },
+                "user_id_using_wf": {
+                    "type": "slack#/types/user_id",
+                    "title": "User Id Using Wf",
+                    "description": "",
+                    "name": "user_id_using_wf"
+                }
+            },
+            "output_parameters": {
+                "finalop": {
+                    "type": "string",
+                    "title": "Finalop",
+                    "description": "",
+                    "name": "finalop"
+                }
+            }
+        },
+        "Userconv": {
+            "title": "Convert to user",
+            "description": "",
+            "input_parameters": {
+                "user_id_to_conv": {
+                    "type": "slack#/types/user_id",
+                    "title": "User Id To Conv",
+                    "description": "",
+                    "name": "user_id_to_conv"
+                },
+                "time_to_conv": {
+                    "type": "string",
+                    "title": "Time To Conv",
+                    "description": "",
+                    "name": "time_to_conv"
+                },
+                "user_of_wf": {
+                    "type": "slack#/types/user_id",
+                    "title": "User Of Wf",
+                    "description": "",
+                    "name": "user_of_wf"
+                }
+            },
+            "output_parameters": {
+                "conv_time_op": {
+                    "type": "string",
+                    "title": "Conv Time Op",
+                    "description": "",
+                    "name": "conv_time_op"
+                }
+            }
+        }
+    }
+}
